@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Configurações</title>
+    <script>
+        var config = {
+            "idioma": "pt-BR",
+            "tema": "claro",
+            "notificações": true
+        };
+
+        function saveSettings() {
+            var settingsJson = JSON.stringify(config);
+            localStorage.setItem("config", settingsJson);
+        }
+
+        function loadSettings() {
+            var settingsJson = localStorage.getItem("config");
+            if (settingsJson) {
+                config = JSON.parse(settingsJson);
+            }
+
+            document.getElementById("idioma").value = config.idioma;
+            document.getElementById("tema").value = config.tema;
+            document.getElementById("notificacoes").checked = config.notificações;
+        }
+    </script>
+</head>
+<body onload="loadSettings()">
+    <h1>Configurações</h1>
+    <label for="idioma">Idioma:</label>
+    <input type="text" id="idioma"><br>
+    <label for="tema">Tema:</label>
+    <input type="text" id="tema"><br>
+    <label for="notificacoes">Notificações:</label>
+    <input type="checkbox" id="notificacoes"><br>
+    <button onclick="saveSettings()">Salvar</button>
+</body>
+</html>

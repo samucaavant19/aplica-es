@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Lista de Tarefas JSON</title>
+    <script>
+        var tasks = [];
+
+        function addTask() {
+            var taskText = document.getElementById("task").value;
+            tasks.push({ text: taskText, done: false });
+            document.getElementById("task").value = "";
+            displayTasks();
+        }
+
+        function displayTasks() {
+            var taskList = document.getElementById("taskList");
+            taskList.innerHTML = "";
+            tasks.forEach(function(task, index) {
+                var listItem = document.createElement("li");
+                listItem.innerHTML = `<input type="checkbox" id="task${index}" ${task.done ? "checked" : ""}> ${task.text}`;
+                listItem.querySelector(`#task${index}`).addEventListener("change", function() {
+                    tasks[index].done = this.checked;
+                });
+                taskList.appendChild(listItem);
+            });
+        }
+    </script>
+</head>
+<body>
+    <h1>Lista de Tarefas</h1>
+    <input id="task" type="text" placeholder="Adicionar tarefa">
+    <button onclick="addTask()">Adicionar</button>
+    <ul id="taskList"></ul>
+</body>
+</html>

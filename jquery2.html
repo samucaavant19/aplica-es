@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Trocar Cores</title>
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+</head>
+<body>
+    <h1>Trocar Cores</h1>
+    <button id="changeColor">Trocar Cor</button>
+
+    <script>
+        $(document).ready(function() {
+            var colors = ["#FF5733", "#33FF57", "#5733FF"];
+            var currentColor = 0;
+
+            $("#changeColor").click(function() {
+                $("body").css("background-color", colors[currentColor]);
+                currentColor = (currentColor + 1) % colors.length;
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Exibir/Ocultar Elementos</title>
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+</head>
+<body>
+    <h1>Exibir/Ocultar Elementos</h1>
+    <button id="showElement">Exibir Elemento</button>
+    <button id="hideElement">Ocultar Elemento</button>
+    <p id="elementToToggle">Este é o elemento que pode ser exibido/oculto.</p>
+
+    <script>
+        $(document).ready(function() {
+            $("#showElement").click(function() {
+                $("#elementToToggle").show();
+            });
+
+            $("#hideElement").click(function() {
+                $("#elementToToggle").hide();
+            });
+        });
+    </script>
+</body>
+</html>

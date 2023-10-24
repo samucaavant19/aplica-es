@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Lista de Tarefas</title>
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <style>
+        ul { list-style: none; }
+    </style>
+</head>
+<body>
+    <h1>Lista de Tarefas</h1>
+    <input id="task" type="text" placeholder="Adicionar tarefa">
+    <button id="addTask">Adicionar</button>
+    <ul id="taskList"></ul>
+
+    <script>
+        $(document).ready(function() {
+            $("#addTask").click(function() {
+                var taskText = $("#task").val();
+                if (taskText !== "") {
+                    $("#taskList").append("<li>" + taskText + "</li>");
+                    $("#task").val("");
+                }
+            });
+
+            $("#taskList").on("click", "li", function() {
+                $(this).remove();
+            });
+        });
+    </script>
+</body>
+</html>
+
+

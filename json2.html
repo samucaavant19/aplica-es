@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Recuperar Dados JSON</title>
+    <script>
+        function fetchData() {
+            fetch("data.json")
+                .then(response => response.json())
+                .then(data => {
+                    // Processa e exibe os dados
+                    document.getElementById("name").textContent = data.name;
+                    document.getElementById("email").textContent = data.email;
+                });
+        }
+    </script>
+</head>
+<body>
+    <h1>Dados JSON</h1>
+    <p>Nome: <span id="name"></span></p>
+    <p>Email: <span id="email"></span></p>
+    <button onclick="fetchData()">Carregar Dados</button>
+</body>
+</html>
